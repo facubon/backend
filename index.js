@@ -1,0 +1,1 @@
+let hola = console.log (2)  
