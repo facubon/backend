@@ -37,30 +37,30 @@ addProduct(title,description,price,thumbnail,code,stock)  {
     
 }
 
-    //Hago que si se repite el ID me tire un mensaje//
-    agregarId (idProducto, idStock) {
-        let respuesta;
-        for (let i = 0 ; i < this.Products.length; i ++){
-            if (this.Products [i].id === idProducto){
-                if (this.Products[i].stock.includes(idStock)){
-                    respuesta = "El objeto esta repetido";
-                    
-                    break;
-                    
-                }
-                this.Products [i].stock.push(idStock);
-                respuesta = "stock agregado";
-                break;
-                
-            }
-        }
+        //se llamara al metodo addproducts con los mismos campos que arriba y tiene que arrojar un error porq estara repetido//
+        //nose como hacer este paso... si hacer  addProduct (product) para llamar al metodo y pasarle los mismos campos y ahi {if/else si es igual que ponga un error y si es distinto que lo agrege al array }//
        
-        
-        
-        return respuesta;
+    
+
+
+
+
+    //Hago que si se repite el ID me tire un mensaje    (este paso no estoy seguro si esta bien porq al probarlo en la consola no me aparece nada)        //
+        getProductsById (id){
+            //busco que se encuentre el id//
+            let product = this.Products.find (e => e.id === id)
+            
+            if (product){
+                return product;
+            }else{
+                console.log (error)
+            }
+
+            
+        }
         
       
-    }
+    
     
 
 }
