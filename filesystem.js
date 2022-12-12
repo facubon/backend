@@ -8,8 +8,8 @@ class ProductManager {
         //------ Si existe el archivo lo parsea y crea el array de productos y si no existe crea el array vacio----//
 
         if (fs.existsSync(filename)){
-            this.filename = filename;
-            this.products = json.parse(fs.readFileSync(filename,'utf-8'));
+            this.filename = ('./productos.json');
+            this.products = json.parse(fs.readFileSync('./productos.json','utf-8'));
         } else{
             this.products = [];
         }
@@ -55,7 +55,7 @@ class ProductManager {
 }
 
     //----incremento el id a medida que se agregan----/
-    save(producto){
+     function save(producto){
         if(this.Products.length === 0) {
           producto ["id"] = 1;
       
@@ -72,7 +72,7 @@ class ProductManager {
  }}
 
 
- deleteProduct (){
+ function deleteProduct (){
     fs.unlink(this.filename)
  }
 
@@ -89,22 +89,21 @@ class ProductManager {
 const updateProduct = new ProductManager ('products.json')
 
 updateProduct.createProduct({
-    title: 'asd',
+    title: 'hola',
     description:'este es un producto prueba',
     price: 200,
     thumbnail:'sin imagen',
     code:'abc123',
     stock:25,
 
-    title: 'asdasdasdasd',
-    description:'este es un producto prueba',
-    price: 200,
-    thumbnail:'sin imagen',
-    code:'abc123',
-    stock:20,
-    
 
 })
+
+
+
+
+
+
 
 updateProduct.getProducts()
 .then(data=>console.log(data))
