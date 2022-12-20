@@ -1,5 +1,9 @@
 const fs = require('fs');
 
+
+
+
+
 class ProductManager{
 
     constructor(fileName){ 
@@ -101,8 +105,12 @@ class ProductManager{
 };
 
 
+
 let fileName = "./Products.JSON";
 let productos = new ProductManager(fileName);
+
+
+
 
 //productos.getProducts().then((res) => console.log(res));
 
@@ -116,6 +124,8 @@ let productos = new ProductManager(fileName);
 
 //productos.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'ac123', 25).then((res) => console.log(res));
 
+
+
 productos.deleteProduct(3).then(()=> productos.getProducts().then((res) => console.log(res)));
-Footer
+
 
