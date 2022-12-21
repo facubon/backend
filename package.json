@@ -1,0 +1,24 @@
+{
+  "name": "desafio1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http_server.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facubon/backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/facubon/backend/issues"
+  },
+  "homepage": "https://github.com/facubon/backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
