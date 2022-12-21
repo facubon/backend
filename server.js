@@ -32,12 +32,12 @@ server.get('/products',(req,res) =>{
 })
 
 //llamo al id 2//
-server.get('/products/:2',(req,res)=>{
-    let idProducto =req.params.idProducto;
-    let producto = productos.find(p=>p.id===idProducto);
+server.get('/products/:idUsuario', (req,res)=>{
+    let idUsuario  =req.params.idUsuario
+    let producto =  productos.find(p=>p.id===idUsuario);
     if(!producto) return res.send({error:"Id no encontrado"})
 
-    res.send({productos})
+    res.send({producto})
     
 })
 
