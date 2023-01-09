@@ -1,6 +1,6 @@
 class Cart{
-    constructor(products){
-        this.products = products || [];
+    constructor(){
+        this.products = [];
         
 
     }

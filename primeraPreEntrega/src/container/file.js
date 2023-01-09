@@ -25,9 +25,11 @@ class File{
                 ...element
             }
             this.elements.push(element);
+
             await fs.promises.writefile(this.name,JSON.stringify(this.elements,null,'\t'));
             console.log('elemento guardado con exito!');
-            return { info:'elemento guardado con existo',element}
+            return { info:`${this.name},elemento guardado con existo`,element}
+
         }catch (error){
             console.log('error al guardar el elemento', error);
             return {info: 'error al guardar el elemento',error}
