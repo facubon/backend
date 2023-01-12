@@ -1,14 +1,13 @@
 {
-  "name": "express-handlebars",
+  "name": "express-hbs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
-
+    "dev": "nodemon server.js",
+    "start": " node server.js"
   },
   "keywords": [],
   "author": "",
