@@ -1,0 +1,32 @@
+{
+    "name": "segundaentregabackend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "description": "",
+    "type": "module",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Tempra94/SegundaPreEntrega-PF.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Tempra94/SegundaPreEntrega-PF.git/issues"
+    },
+    "homepage": "https://github.com/Tempra94/SegundaPreEntrega-PF.git#readme",
+    "dependencies": {
+      "@handlebars/allow-prototype-access": "^1.0.5",
+      "express": "^4.18.2",
+      "express-handlebars": "^6.0.6",
+      "mongoose": "^6.8.3",
+      "mongoose-paginate-v2": "^1.7.1",
+      "multer": "^1.4.5-lts.1",
+      "nodeman": "^1.1.2",
+      "socket.io": "^4.5.4"
+    }
+  }
+  
