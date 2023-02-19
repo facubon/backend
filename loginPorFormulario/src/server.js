@@ -1,50 +1,53 @@
-import  express  from "express";
+import express from "express";
 import cookieParser from "cookie-parser";
-import session from 'express-session';
-import FileStore from 'session-file-store';
+import session from "express-session";
+import { userModel } from "./models/user.model.js";
+import viewsRoutes from "./routes/views.routes.js";
+import sessionRoutes from "./routes/session.routes.js";
+import __dirname from "./dirname.js";
+import handlebars from "express-handlebars";
+import MongoStore from "connect-mongo";
+import mongoose from "mongoose";
 
-const FileStorage = new FileStore (session);
 const app = express();
 
 // Server config
-app.use = (cookieParser());
-
-app.use (session({
-    secret: 's1k2a3',
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(
+  //Creo la carpeta sessions en mongodb
+  session({
+    store: MongoStore.create({
+      mongoUrl: 'mongodb+srv://user_fp:DPYFgcmeYg4z1DwW@coderhousecluster.jcrt1ix.mongodb.net/test',
+      mongoOptions: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        
+      },
+      ttl: 60,
+    }),
+    secret: "coderhouse",
     resave: false,
     saveUninitialized: false,
-    store: new FileStorage ({path:'./src/sessions', retries: 0, ttl: 60})
+  })
+);
+
+mongoose.connect('mongodb+srv://user_fp:DPYFgcmeYg4z1DwW@coderhousecluster.jcrt1ix.mongodb.net/test')
+  .then(() => console.log("Connected to MongoDB"))
+
+// Handlebars config
+app.engine('hbs', handlebars.engine({
+  extname: '.hbs',
+  defaultLayout: 'main'
 }))
+app.set('view engine', 'hbs');
+app.set('views', `${__dirname}/views`);
 
-//endpoints
+// Routes
+app.use("/", viewsRoutes);
+app.use("/session", sessionRoutes);
+ app.get('*', (req, res) => { res.status(404).send('404 not found') })
 
-app.get('/', (req, res) => {
-    if(!req.session.contador) {
-      req.session.contador = 0
-    }
-  
-    req.session.contador++;
-  
-    res.send(`Contador: ${req.session.contador}`)
-  })
-  
-  app.get('/session', (req, res) => {
-    res.send(req.session)
-  })
-  
-  app.get('/logout', (req, res) => {
-    req.session.destroy()
-    res.send('Sesion eliminada')
-  })
-
-
-
-
-
-
-
-
-
-
-
-app.listen(3000, () => console.log(`Server on port 3000`))
+// Server start
+app.listen(3000, () => console.log("Server running on port 3000"))
