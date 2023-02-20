@@ -1,0 +1,115 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: arial;
+    background-color: darkslategrey;
+}
+
+.form-login{
+    width: 400px;
+    height: 340px;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 180px;
+    box-shadow: 7px 13px 37px  #000;
+    padding: 20px 30px;
+    border-radius: 20px;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    margin-top: 15px;
+}
+
+.controls{
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid;
+    padding: 7px 8px;
+    border-radius: 3px;
+}
+
+.buttons{
+    width: 100%;
+    height: 35px;
+    background: #017bab;
+    border: none;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.register{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.register:hover{
+    text-decoration:underline;
+    
+}
+
+.enlace{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.enlace:hover{
+    text-decoration:underline;
+}
+
+
+
+
+.form-register{
+    width: 400px;
+    height: 430px;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 180px;
+    box-shadow: 7px 13px 37px  #000;
+    padding: 20px 30px;
+    border-radius: 20px;
+    color: white;
+}
+
+.buttonsRegister{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.buttonsRegister:hover{
+    text-decoration:underline;
+}
+
+.profilep{
+    text-align: center;
+    font-size: 25px;
+    margin: 30px;
+
+}
+
+.profileul{
+    background-color: grey;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.datos{
+    text-align: center;
+    padding-top: 30px;
+}
+
+.profileEmail{
+    margin:10px;
+}

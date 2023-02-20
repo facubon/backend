@@ -11,6 +11,10 @@ import mongoose from "mongoose";
 
 const app = express();
 
+
+//CSS
+app.use(express.static('public'));
+
 // Server config
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

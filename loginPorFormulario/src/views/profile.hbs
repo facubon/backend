@@ -1,10 +1,16 @@
-<div>
-  Bienvenido {{ user.first_name }} {{ user.last_name }}
+<div class="form-login">
+    <p class="profilep"> Bienvenido: {{ user.first_name }} {{ user.last_name }} ! </p>  
 
-  <ul>
-    <li> {{ user.email}} </li>
-    <li> {{ user.age }} </li>
-  </ul>
 
-  <a href="/session/logout"> Cerrar Sesion </a>
+  <div class="profileul">
+     <p class="profileEmail">Email:  {{ user.email}}  </p>
+     <p class="profileEmail">Rol:  {{ user.role}} </p> 
+     <p class="profileEmail">Password:  No se puede mostrar</p>
+  </div>
+
+
+
+ 
+
+   <p class="register"> <a href="/session/logout"> Cerrar Sesion </a>  </p>
 </div>
