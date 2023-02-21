@@ -1,6 +1,6 @@
 import passport from "passport";
 import GitHubStrategy from "passport-github2";
-import { userModel } from "../models/User.js";
+import { userModel } from "../models/User.model.js";
 
 
 
@@ -9,8 +9,8 @@ const initializaPassport = () => {
     passport.use(
       new GitHubStrategy(
         {
-          clientID:'Iv1.1f5073830c9c3348',
-          clientSecret: '4d0b58b00345a79b902d1c163b34cbbf70832e8c',
+          clientID:'',
+          clientSecret: '',
           callbackURL: "http://localhost:3000/api/sessions/githubcallback",
           scope: "user:email"
         },
@@ -30,7 +30,7 @@ const initializaPassport = () => {
                   last_name,
                   email: profile.emails[0].value,
                   password: "",
-                  age: null,
+                  
                 }
     
                 // await newUser.save()
