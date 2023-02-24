@@ -1,0 +1,15 @@
+<h2>
+Hola! {{this.user.first_name}}
+</h2>
+
+
+{{#if this.user.isAdmin }}
+<h2>{{this.user.first_name}}, tenes permisos de administrador</h2>
+{{else}}
+<h2>
+<h2>{{this.user.first_name}},no tenes permisos de administrador</h2>
+</h2>
+{{/if}}
+
+
+<button><a href="/session/logout">Cerrar Sesion</a></button>

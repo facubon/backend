@@ -1,12 +1,18 @@
-<div>
-     <h1> Login </h1>
-  <form action="/session/login" method="post">
-    <input type="text" name="email" placeholder="Email" >
-    <input type="text" name="password" placeholder="Password">
-    <button  type="submit">Iniciar Sesion</button>
-  </form>
-
-    <p><a   href="/register"> Registrese </a></p> 
-    <p><a   href="/api/sessions/github"> Login with Github </a> </p> 
+<div id="login-form-wrap">
+  <h2>Login</h2>
+  <form action="/session/login" method="POST" id="login-form">
     
+    <p>
+    <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="username" name="password"  required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <button type="submit">Iniciar sesion</button>
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p><a href="/register"> Registrarse</a><p>
+  </div>
 </div>
