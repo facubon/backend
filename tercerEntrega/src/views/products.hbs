@@ -1,0 +1,33 @@
+<table>
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Description</td>
+			<td>Category</td>
+			<td>Price</td>
+			<td>Stock</td>
+			<td>Comprar?</td>
+		</tr>
+	</thead>
+	<tbody>
+    {{#each result.docs}}
+            <tr>
+			<td>{{this.title}}</td>
+			<td>{{this.description}}</td>
+			<td>{{this.category}}</td>
+			<td>{{this.price}}</td>
+			<td>{{this.stock}}</td>
+			<td><button>Agregar</button></td>
+		</tr>
+        {{/each}}
+	</tbody>
+</table>
+
+
+ <div>
+        <a href="/products?page={{result.prevPage}}&&limit=">Prev</a>
+        <a href="/products?page={{result.nextPage}}">Next</a>
+    </div>
+<h5>
+      {{ result.page }} / {{ result.totalPages }}
+    </h5>

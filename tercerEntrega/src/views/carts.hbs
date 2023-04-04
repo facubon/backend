@@ -1,0 +1,55 @@
+ <h1>Carritos por carrito</h1>
+<form action="/api/carts" method="post">
+
+          <button>
+            Crear Carrito Nuevo
+          </button>
+
+
+</form>
+
+
+    
+
+        <ul class="people_list">
+     
+  {{#each result}}
+
+          <li>CARRITO CON ID : {{this._id}}</li>
+          </br>
+
+
+             <button>
+          <a href="/api/carts/{{this._id}}" target="_blank"</a>
+          Ver detalle de carrito
+          </button>
+
+</br>
+</br>
+
+
+
+{{#if this.products}}
+
+<form action="/api/carts/{{this._id}}/purchase" method="post">
+
+          <button>
+          Comprar!
+          </button>
+
+
+</form>
+
+
+{{/if}}
+
+
+
+
+</br>
+</br>
+</br>
+
+  {{/each}}
+</ul>
+
