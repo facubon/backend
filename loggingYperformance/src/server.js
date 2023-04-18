@@ -38,10 +38,17 @@ app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, '/src/public')));
 app.use(cookieParser())
 app.use(errorHandler)
+//agrego addlogger de utils
+app.use(addLogger)
 
 // routes
+
 app.get('/', (req, res) => res.redirect('/api'))
 app.use('/api', routes)
+app.get('/', (req, res) => {
+  req.logger.warning('ingreso a ruta seleccionada!')
+  res.redirect('/api')
+})
 
 
 // cors
