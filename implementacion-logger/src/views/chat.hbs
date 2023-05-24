@@ -1,0 +1,111 @@
+<div class="container">
+
+    <!-- Page header start -->
+    <div class="page-title">
+        <div class="row gutters">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <h5 class="title">Chat App</h5>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"> </div>
+        </div>
+    </div>
+    <!-- Page header end -->
+
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+
+        <!-- Row start -->
+        <div class="row gutters">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <div class="card m-0">
+
+                    <!-- Row start -->
+                                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                            
+                            <div class="chat-container">
+                                <ul id="chatBox" class="chat-box chatContainerScroll">
+                                                                  
+                                </ul>
+                                <div class="messsage-box form-group mt-3 mb-0">
+                                    <textarea id="messageBox" class="form-control" rows="5" placeholder="Type your message here..."></textarea>
+                                </div>
+                                <button id="sendMessageButton"> Enviar </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+const socket = io("http://localhost:3000")
+document.getElementById("sendMessageButton").addEventListener("click", postMessage)
+let user = ""; 
+
+Swal.fire({
+  title: "Ingresa con tu nombre",
+  input: "text",
+  text: "Ingrese su nombre para identificarte en el chat",
+  inputValidator: (value) => {
+    return !value && "Debes ingresar un nombre";
+  },
+  allowOutsideClick: false,
+}).then((res) => {
+  user = res.value;
+});
+
+
+function postMessage() {
+  console.log("postMessage")
+  let userMessage = {
+    user : user,
+    "message" : document.getElementById("messageBox").value
+  }
+  socket.emit("mensajeNuevo", userMessage)
+
+  
+}
+
+socket.on("historialChat", data => {
+  let historial = document.getElementById("chatBox")
+
+  historial.innerHTML = `      <li class="chat-left">
+                                        <div class="chat-avatar">
+                                            <img src="https://icon-library.com/images/unknown-person-icon/unknown-person-icon-4.jpg" alt="">
+                                            <div class="chat-name">German</div>
+                                        </div>
+                                        <div class="chat-text">
+                                        Hola, podes probar esta aplicacion de chat con WebSocket.
+                                    </li>
+`
+
+  data.map(element => {
+  historial.innerHTML += `
+  <li class="chat-left">
+                                        <div class="chat-avatar">
+                                            <img src="https://icon-library.com/images/unknown-person-icon/unknown-person-icon-4.jpg" alt="">
+                                            <div class="chat-name">${element.user}</div>
+                                        </div>
+                                        <div class="chat-text">
+                                        ${element.message}
+                                    </li>
+
+
+  `
+  })
+})
+
+
+
+
+
+</script>
+

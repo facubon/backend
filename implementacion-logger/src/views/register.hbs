@@ -1,0 +1,35 @@
+<div id="register-form-wrap">
+  <h2>Registrate</h2>
+  <form action="/api/session/register" method="POST" id="login-form">
+    <p>
+    <input type="text" id="first_name" name="first_name" placeholder="Ingresa tu nombre" ><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="text" id="last_name" name="last_name" placeholder="Ingresa tu apellido" ><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="email" id="email" name="email" placeholder=" Ingresa tu mail" ><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="text" id="age" name="age" placeholder=" ingresa tu edad" ><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="text" id="phone" name="phone" placeholder="Ingresa tu telefono" ><i class="validation"><span></span><span></span></i>
+    </p>
+
+
+
+    <p>
+    <input type="password" id="password" name="password" placeholder="Contraseña" ><i class="validation"><span></span><span></span></i>
+    </p>
+        <select class="form-select" name="role" id="">
+      <option value="user" selected>User</option>
+      <option value="admin">Admin</option>
+
+    </select>
+
+    <p>
+    <button type="submit">Registrarse</button>
+    </p>
+  </form>
+</div><!--register-form-wrap-->

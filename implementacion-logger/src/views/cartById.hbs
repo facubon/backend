@@ -1,0 +1,46 @@
+<h1>Productos por carrito</h1>
+<h2>Carrito con ID: {{this.result._id}}</h2>
+<table>
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Description</td>
+			<td>Category</td>
+			<td>Price</td>
+			<td>Cantidad</td>
+			<td>Stock Actual</td>
+		</tr>
+	</thead>
+	<tbody>
+
+
+    {{#each result.products}}
+            <tr>
+			<td>{{this.product.title}}</td>
+			<td>{{this.product.description}}</td>
+			<td>{{this.product.category}}</td>
+			<td>{{this.product.price}}</td>
+			<td>{{this.quantity}}</td>
+			<td>{{this.product.stock}}</td>
+		</tr>
+        {{/each}}
+
+
+
+{{#if result.products}}
+<form action="/api/carts/{{result._id}}/purchase" method="post">
+
+          <button>
+          Comprar!
+          </button>
+
+
+</form>
+
+{{/if}}
+
+   
+      
+	</tbody>
+</table>
+
